@@ -1,8 +1,8 @@
-package Model.Task;
+package com.example.pengyuxiong.taxigo.Model.Task;
 
 import android.graphics.Bitmap;
 
-import Model.Navigation;
+import com.example.pengyuxiong.taxigo.Model.Navigation;
 
 public class Assigned_task extends Task {
     public Assigned_task(int passenger_id, int driver_id, Navigation navigation1, String task_status){

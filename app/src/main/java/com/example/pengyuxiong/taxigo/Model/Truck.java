@@ -1,4 +1,4 @@
-package Model;
+package com.example.pengyuxiong.taxigo.Model;
 
 public class Truck {
     private String Plate_num;

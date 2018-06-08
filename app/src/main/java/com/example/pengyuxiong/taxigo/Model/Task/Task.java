@@ -1,11 +1,11 @@
-package Model.Task;
+package com.example.pengyuxiong.taxigo.Model.Task;
 
 import android.graphics.Bitmap;
 import android.location.Location;
 
 import java.sql.Time;
 
-import Model.Navigation;
+import com.example.pengyuxiong.taxigo.Model.Navigation;
 
 public abstract class Task {
     private int Passenger_id;
