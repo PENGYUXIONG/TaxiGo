@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Log_In_Activity">
+
+    <EditText
+        android:id="@+id/PassWord"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="316dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginLeft="63dp"
+        android:layout_marginRight="63dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Username" />
+
+    <Button
+        android:id="@+id/Login_button"
+        android:layout_width="93dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="103dp"
+        android:layout_marginEnd="145dp"
+        android:layout_marginLeft="146dp"
+        android:layout_marginRight="145dp"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="110dp"
+        android:text="Log In"
+        android:textAppearance="@android:style/TextAppearance"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PassWord" />
+
+    <EditText
+        android:id="@+id/Username"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginLeft="63dp"
+        android:layout_marginRight="63dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="150dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/PassWord"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+</android.support.constraint.ConstraintLayout>
