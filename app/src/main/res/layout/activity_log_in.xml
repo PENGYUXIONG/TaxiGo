@@ -38,7 +38,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginRight="65dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="50dp"
         android:text="Log In"
         android:textAppearance="@android:style/TextAppearance"
         app:layout_constraintBottom_toTopOf="@+id/button"
@@ -55,14 +55,14 @@
         android:layout_marginLeft="100dp"
         android:layout_marginRight="63dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="450dp"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
         android:textColorHint="#FFF"
         app:layout_constraintBottom_toTopOf="@+id/PassWord"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="spread_inside" />
@@ -91,21 +91,20 @@
         android:layout_height="59dp"
         android:layout_marginLeft="43dp"
         android:layout_marginStart="43dp"
-        android:layout_marginTop="320dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toStartOf="@+id/Username"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Username"
         app:srcCompat="@android:drawable/ic_menu_info_details" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="62dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="1dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginStart="56dp"
-        app:layout_constraintBottom_toTopOf="@+id/Login_button"
+        android:layout_height="45dp"
+
+        android:layout_marginLeft="38dp"
+        android:layout_marginStart="38dp"
+        app:layout_constraintBottom_toBottomOf="@+id/PassWord"
         app:layout_constraintEnd_toStartOf="@+id/PassWord"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
@@ -125,5 +124,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.047"
         app:srcCompat="@drawable/logo" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left" />
 
 </android.support.constraint.ConstraintLayout>
