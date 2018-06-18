@@ -111,4 +111,19 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:srcCompat="@android:drawable/ic_secure" />
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="203dp"
+        android:layout_height="216dp"
+        android:layout_marginLeft="91dp"
+        android:layout_marginStart="91dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.047"
+        app:srcCompat="@drawable/logo" />
+
 </android.support.constraint.ConstraintLayout>
