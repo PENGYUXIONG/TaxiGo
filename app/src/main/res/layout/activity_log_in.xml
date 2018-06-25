@@ -41,7 +41,7 @@
         android:layout_marginTop="50dp"
         android:text="Log In"
         android:textAppearance="@android:style/TextAppearance"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/Signup_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PassWord" />
@@ -68,7 +68,7 @@
         app:layout_constraintVertical_chainStyle="spread_inside" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/Signup_button"
         style="@android:style/Widget.Material.Button.Borderless.Colored"
         android:layout_width="259dp"
         android:layout_height="43dp"
@@ -111,9 +111,9 @@
         app:srcCompat="@android:drawable/ic_secure" />
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="203dp"
-        android:layout_height="216dp"
+        android:id="@+id/Logo"
+        android:layout_width="222dp"
+        android:layout_height="215dp"
         android:layout_marginLeft="91dp"
         android:layout_marginStart="91dp"
         android:layout_marginTop="2dp"
@@ -122,7 +122,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.047"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/logo" />
 
     <android.support.constraint.Barrier

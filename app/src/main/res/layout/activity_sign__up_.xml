@@ -8,45 +8,43 @@
     tools:context=".View.Sign_Up_Activity">
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="288dp"
-        android:layout_height="63dp"
+        android:id="@+id/Email"
+        android:layout_width="289dp"
+        android:layout_height="67dp"
         android:layout_marginEnd="52dp"
         android:layout_marginLeft="44dp"
         android:layout_marginRight="52dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="100dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:textColorHint="#FF0"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
+        app:layout_constraintBottom_toTopOf="@+id/Username"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editText" />
+        app:layout_constraintTop_toBottomOf="@id/Phone" />
 
     <EditText
-        android:id="@+id/editText2"
-        android:layout_width="288dp"
-        android:layout_height="63dp"
+        android:id="@+id/Username"
+        android:layout_width="289dp"
+        android:layout_height="67dp"
         android:layout_marginEnd="52dp"
         android:layout_marginLeft="44dp"
         android:layout_marginRight="52dp"
         android:layout_marginStart="44dp"
         android:ems="10"
         android:hint="UserName"
-        android:textColorHint="#FF0"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editText3"
+        android:textColorHint="#FF0"
+        app:layout_constraintBottom_toTopOf="@+id/Password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/Email" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/Password"
         android:layout_width="289dp"
-        android:layout_height="63dp"
+        android:layout_height="67dp"
         android:layout_marginBottom="12dp"
         android:layout_marginEnd="52dp"
         android:layout_marginLeft="44dp"
@@ -56,36 +54,83 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:textColorHint="#FF0"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton"
+        app:layout_constraintBottom_toTopOf="@+id/Potrait"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/Username" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/Potrait"
         android:layout_width="286dp"
-        android:layout_height="99dp"
-        android:layout_marginBottom="15dp"
+        android:layout_height="93dp"
         android:layout_marginEnd="52dp"
         android:layout_marginLeft="44dp"
         android:layout_marginRight="52dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/Done"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3"
+        app:layout_constraintTop_toBottomOf="@+id/Password"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/Done"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="288dp"
         android:layout_height="56dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginBottom="22dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginStart="48dp"
         android:text="Done"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        tools:layout_editor_absoluteX="48dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Potrait" />
+
+    <EditText
+        android:id="@+id/Phone"
+        android:layout_width="289dp"
+        android:layout_height="67dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginRight="52dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="phone"
+        android:inputType="phone"
+        android:textColorHint="#FF0"
+        app:layout_constraintBottom_toTopOf="@+id/Email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Driver"
+        android:textColor="#FFF"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="313dp"
+        app:layout_constraintLeft_toLeftOf="@id/Potrait"
+        app:layout_constraintTop_toBottomOf="@id/Password"
+        app:layout_constraintBottom_toTopOf="@id/Potrait"/>
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Passenger"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="313dp"
+        android:textColor="#FFF"
+        app:layout_constraintTop_toBottomOf="@id/Password"
+        app:layout_constraintBottom_toTopOf="@id/Potrait"
+        app:layout_constraintRight_toRightOf="@id/Potrait"
+        app:layout_constraintLeft_toRightOf="@id/checkBox"/>
 
 </android.support.constraint.ConstraintLayout>
