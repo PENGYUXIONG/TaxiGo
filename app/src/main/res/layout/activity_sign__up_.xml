@@ -54,7 +54,6 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:textColorHint="#FF0"
-        app:layout_constraintBottom_toTopOf="@+id/Potrait"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Username" />
@@ -62,7 +61,7 @@
     <ImageButton
         android:id="@+id/Potrait"
         android:layout_width="286dp"
-        android:layout_height="93dp"
+        android:layout_height="83dp"
         android:layout_marginEnd="52dp"
         android:layout_marginLeft="44dp"
         android:layout_marginRight="52dp"
@@ -71,7 +70,7 @@
         app:layout_constraintBottom_toTopOf="@+id/Done"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Password"
+        app:layout_constraintTop_toBottomOf="@+id/Address"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <Button
@@ -98,7 +97,6 @@
         android:layout_marginLeft="44dp"
         android:layout_marginRight="52dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="phone"
         android:inputType="phone"
@@ -117,7 +115,7 @@
         tools:layout_editor_absoluteX="45dp"
         tools:layout_editor_absoluteY="313dp"
         app:layout_constraintLeft_toLeftOf="@id/Potrait"
-        app:layout_constraintTop_toBottomOf="@id/Password"
+        app:layout_constraintTop_toBottomOf="@id/Address"
         app:layout_constraintBottom_toTopOf="@id/Potrait"/>
 
     <CheckBox
@@ -128,9 +126,20 @@
         tools:layout_editor_absoluteX="145dp"
         tools:layout_editor_absoluteY="313dp"
         android:textColor="#FFF"
-        app:layout_constraintTop_toBottomOf="@id/Password"
+        app:layout_constraintTop_toBottomOf="@id/Address"
         app:layout_constraintBottom_toTopOf="@id/Potrait"
         app:layout_constraintRight_toRightOf="@id/Potrait"
         app:layout_constraintLeft_toRightOf="@id/checkBox"/>
+
+    <EditText
+        android:id="@+id/Address"
+        android:layout_width="289dp"
+        android:layout_height="67dp"
+        android:ems="10"
+        android:hint="Address"
+        android:inputType="textPostalAddress"
+        android:textColorHint="#FF0"
+        app:layout_constraintLeft_toLeftOf="@id/Password"
+        app:layout_constraintTop_toBottomOf="@id/Password"/>
 
 </android.support.constraint.ConstraintLayout>

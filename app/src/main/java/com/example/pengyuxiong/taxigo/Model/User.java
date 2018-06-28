@@ -3,7 +3,7 @@ package com.example.pengyuxiong.taxigo.Model;
 import android.graphics.Bitmap;
 
 public class User {
-    private int User_id;
+    private String User_id;
     private String Password;
     private String Name;
     private String Primary_address;
@@ -15,7 +15,7 @@ public class User {
     private Truck truck;
 
 
-    public User(int user_id, String password, String name, String primary_address, int telephone_num,
+    public User(String user_id, String password, String name, String primary_address, int telephone_num,
                 String email, String user_type, Bitmap potrait){
         this.User_id = user_id;
         this.Password = password;
@@ -27,7 +27,7 @@ public class User {
         this.Potrait = potrait;
     }
 
-    public User(int user_id, String password, String name, String primary_address, int telephone_num,
+    public User(String user_id, String password, String name, String primary_address, int telephone_num,
                 String email, String user_type, Bitmap potrait, float rating, Truck truck){
         this.User_id = user_id;
         this.Password = password;
@@ -42,7 +42,7 @@ public class User {
     }
 
     // getters and setters
-    public int getUser_id() {
+    public String getUser_id() {
         return User_id;
     }
 
@@ -82,40 +82,40 @@ public class User {
         return truck;
     }
 
-    public void setUser_id(int user_id) {
-        User_id = user_id;
+    public void setUser_id(String user_id) {
+        this.User_id = user_id;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.Password = password;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.Name = name;
     }
 
     public void setPrimary_address(String primary_address) {
-        Primary_address = primary_address;
+        this.Primary_address = primary_address;
     }
 
     public void setTelephone_num(int telephone_num) {
-        Telephone_num = telephone_num;
+        this.Telephone_num = telephone_num;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.Email = email;
     }
 
     public void setPotrait(Bitmap potrait) {
-        Potrait = potrait;
+        this.Potrait = potrait;
     }
 
     public void setUser_type(String user_type) {
-        User_type = user_type;
+        this.User_type = user_type;
     }
 
     public void setRating(float rating) {
-        Rating = rating;
+        this.Rating = rating;
     }
 
     // truck getters and setters

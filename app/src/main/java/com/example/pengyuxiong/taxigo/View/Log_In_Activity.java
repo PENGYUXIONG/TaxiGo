@@ -38,6 +38,12 @@ public class Log_In_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 String Username = username.getText().toString();
                 String Password = password.getText().toString();
+
+                /**
+                 * todo: need to have controller to retrive the information from the server
+                 *
+                 * Pengyu Xiong
+                 */
             }
         });
 
