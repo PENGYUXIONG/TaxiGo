@@ -31,19 +31,15 @@
     <Button
         android:id="@+id/Login_button"
         style="@android:style/Widget.Material.Button"
-        android:layout_width="253dp"
-        android:layout_height="56dp"
-        android:layout_marginBottom="12dp"
-        android:layout_marginEnd="65dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="65dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="283dp"
+        android:layout_height="59dp"
+
+        android:layout_marginTop="8dp"
         android:text="Log In"
         android:textAppearance="@android:style/TextAppearance"
         app:layout_constraintBottom_toTopOf="@+id/Signup_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/imageView3"
+        app:layout_constraintRight_toRightOf="@id/PassWord"
         app:layout_constraintTop_toBottomOf="@+id/PassWord" />
 
     <EditText
@@ -114,8 +110,8 @@
         android:id="@+id/Logo"
         android:layout_width="222dp"
         android:layout_height="215dp"
-        android:layout_marginLeft="91dp"
-        android:layout_marginStart="91dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
