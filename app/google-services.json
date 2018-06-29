@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "995501132506",
+    "firebase_url": "https://taxigo-798c0.firebaseio.com",
+    "project_id": "taxigo-798c0",
+    "storage_bucket": "taxigo-798c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995501132506:android:a26c8233f32dd88a",
+        "android_client_info": {
+          "package_name": "com.example.pengyuxiong.taxigo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "995501132506-0mecr52t91tstjpqvnm8vk96o15b4ivk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeWYrBCxmP3nR-7k7IWvSrcAbgi_yPnNA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,13 +1,16 @@
 package com.example.pengyuxiong.taxigo.View;
 
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.pengyuxiong.taxigo.R;
 
@@ -18,6 +21,7 @@ import static java.util.UUID.randomUUID;
 public class Sign_Up_Activity extends AppCompatActivity {
 
     public static final int request = 0;
+    private static final String REQUIRED = "Required";
 
     private EditText phone;
     private EditText email;
@@ -46,7 +50,7 @@ public class Sign_Up_Activity extends AppCompatActivity {
         phone = (EditText) findViewById(R.id.Phone);
         email = (EditText) findViewById(R.id.Email);
         username = (EditText) findViewById(R.id.Username);
-        password = (EditText) findViewById(R.id.PassWord);
+        password = (EditText) findViewById(R.id.Password);
         address = (EditText) findViewById(R.id.Address);
         done = (Button) findViewById(R.id.Done);
         driver = (CheckBox) findViewById(R.id.checkBox);
@@ -93,6 +97,53 @@ public class Sign_Up_Activity extends AppCompatActivity {
                  *
                  * Pengyu Xiong
                  */
+
+                // if phone number is empty
+                if(TextUtils.isEmpty(phone.getText().toString())){
+                    phone.setError(REQUIRED);
+                    Toast.makeText(Sign_Up_Activity.this, "Phone number is required",
+                            Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                // if email is empty
+                if(TextUtils.isEmpty(email.getText().toString())){
+                    email.setError(REQUIRED);
+                    Toast.makeText(Sign_Up_Activity.this, "Email is required",
+                            Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                // if user name is empty
+                if(TextUtils.isEmpty(username.getText().toString())){
+                    username.setError(REQUIRED);
+                    Toast.makeText(Sign_Up_Activity.this, "Username is required",
+                            Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                // if password is empty
+                if(TextUtils.isEmpty(password.getText().toString())){
+                    password.setError(REQUIRED);
+                    Toast.makeText(Sign_Up_Activity.this, "Password is required",
+                            Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                // if address is empty
+                if(TextUtils.isEmpty(address.getText().toString())){
+                    address.setError(REQUIRED);
+                    Toast.makeText(Sign_Up_Activity.this, "Address is required",
+                            Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                // if account type is not selected
+                if(driver.isChecked() == false & passenger.isChecked()==false){
+                    Toast.makeText(Sign_Up_Activity.this, "Please select the type " +
+                                    "of your account", Toast.LENGTH_LONG).show();
+                    return;
+                }
 
                 Phone = Integer.parseInt(phone.getText().toString());
                 Email = email.getText().toString();
