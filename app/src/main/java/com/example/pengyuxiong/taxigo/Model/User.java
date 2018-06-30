@@ -14,6 +14,20 @@ public class User {
     private float Rating;
     private Truck truck;
 
+    public User(){
+
+    }
+
+    public User(String user_id, String password, String name, String primary_address, int telephone_num,
+                String email, String user_type){
+        this.User_id = user_id;
+        this.Password = password;
+        this.Name = name;
+        this.Primary_address = primary_address;
+        this.Telephone_num = telephone_num;
+        this.Email = email;
+        this.User_type = user_type;
+    }
 
     public User(String user_id, String password, String name, String primary_address, int telephone_num,
                 String email, String user_type, Bitmap potrait){

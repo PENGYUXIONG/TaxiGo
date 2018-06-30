@@ -12,7 +12,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.pengyuxiong.taxigo.Model.User;
 import com.example.pengyuxiong.taxigo.R;
+import com.example.pengyuxiong.taxigo.Controller.User_Controller;
 
 import java.util.UUID;
 
@@ -22,6 +24,8 @@ public class Sign_Up_Activity extends AppCompatActivity {
 
     public static final int request = 0;
     private static final String REQUIRED = "Required";
+
+    private User_Controller user_controller;
 
     private EditText phone;
     private EditText email;
@@ -158,6 +162,8 @@ public class Sign_Up_Activity extends AppCompatActivity {
                 else{
                     User_Type = "P";
                 }
+                user_controller = new User_Controller();
+                user_controller.writeNewUser(User_ID, Password, Username, Address, Phone,Email, User_Type);
                 finish();
             }
         });
