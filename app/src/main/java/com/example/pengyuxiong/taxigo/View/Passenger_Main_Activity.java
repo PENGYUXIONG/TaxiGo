@@ -5,8 +5,9 @@ import android.os.Bundle;
 
 import com.example.pengyuxiong.taxigo.R;
 
-public class Passenger_Main_Activity extends AppCompatActivity {
 
+public class Passenger_Main_Activity extends AppCompatActivity {
+    public static final int Confirm = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

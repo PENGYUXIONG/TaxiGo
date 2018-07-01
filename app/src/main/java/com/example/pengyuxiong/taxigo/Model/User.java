@@ -2,7 +2,7 @@ package com.example.pengyuxiong.taxigo.Model;
 
 import android.graphics.Bitmap;
 
-public class User {
+public class User extends Throwable {
     private String User_id;
     private String Password;
     private String Name;
