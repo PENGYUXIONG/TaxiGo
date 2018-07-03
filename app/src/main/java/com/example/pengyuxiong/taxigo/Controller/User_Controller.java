@@ -1,11 +1,13 @@
 package com.example.pengyuxiong.taxigo.Controller;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.example.pengyuxiong.taxigo.Model.User;
+import com.example.pengyuxiong.taxigo.View.Driver_Main_Activity;
 import com.example.pengyuxiong.taxigo.View.Log_In_Activity;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -65,6 +67,7 @@ public class User_Controller {
 
         // save driver inf
         if (user.getUser_type() == "D") {
+
             mFireStore.collection("Driver").document(user.getName()).set(datatosave);
         }
 

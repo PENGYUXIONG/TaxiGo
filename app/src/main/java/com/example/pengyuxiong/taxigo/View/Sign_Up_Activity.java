@@ -1,9 +1,12 @@
 package com.example.pengyuxiong.taxigo.View;
 
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,8 +18,18 @@ import android.widget.Toast;
 import com.example.pengyuxiong.taxigo.Model.User;
 import com.example.pengyuxiong.taxigo.R;
 import com.example.pengyuxiong.taxigo.Controller.User_Controller;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.UUID;
+
+import javax.annotation.Nullable;
 
 import static java.util.UUID.randomUUID;
 
@@ -24,6 +37,8 @@ public class Sign_Up_Activity extends AppCompatActivity {
 
     public static final int request = 0;
     private static final String REQUIRED = "Required";
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private User_Controller user_controller;
 
@@ -163,9 +178,40 @@ public class Sign_Up_Activity extends AppCompatActivity {
                     User_Type = "P";
                 }
                 user_controller = new User_Controller();
-                user_controller.writeNewUser(User_ID, Password, Username, Address, Phone,Email, User_Type);
-                finish();
+
+                // if driver
+                if(User_Type == "D") {
+                    db.collection("Driver").
+                            document(Username).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if (task.getResult().exists() == false) {
+                                user_controller.writeNewUser(User_ID, Password, Username, Address, Phone, Email, User_Type);
+                                finish();
+                            } else {
+                                Toast.makeText(Sign_Up_Activity.this, "User alreay exist", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+                }
+
+                // if passenger
+                else {
+                    db.collection("Passenger").
+                            document(Username).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if (task.getResult().exists() == false) {
+                                user_controller.writeNewUser(User_ID, Password, Username, Address, Phone, Email, User_Type);
+                                finish();
+                            } else {
+                                Toast.makeText(Sign_Up_Activity.this, "User alreay exist", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+                }
             }
         });
     }
+
 }
