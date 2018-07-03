@@ -15,8 +15,19 @@ import android.widget.Toast;
 import com.example.pengyuxiong.taxigo.Controller.User_Controller;
 import com.example.pengyuxiong.taxigo.Model.User;
 import com.example.pengyuxiong.taxigo.R;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import javax.annotation.Nullable;
 
 public class Log_In_Activity extends AppCompatActivity {
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseFirestore mFireStore;
 
     private static final String REQUIRED = "Required";
 
@@ -26,6 +37,7 @@ public class Log_In_Activity extends AppCompatActivity {
     private Button signup_button;
     private CheckBox driver_button;
     private CheckBox passenger_button;
+
 
     @Override
     protected void onStart() {
@@ -126,8 +138,8 @@ public class Log_In_Activity extends AppCompatActivity {
                     return;
                 }
 
-                String Username = username.getText().toString();
-                String Password = password.getText().toString();
+                final String Username = username.getText().toString();
+                final String Password = password.getText().toString();
                 String User_type;
 
                 if (driver_button.isChecked()) {
@@ -139,23 +151,55 @@ public class Log_In_Activity extends AppCompatActivity {
 
                 // if driver
                 if (User_type == "D"){
-                    User user = user_controller.readDriver(Username, Password);
-                    Log.d("Wrong set", String.valueOf(user == null));
-//                    if (user != user1){
-//                        Intent intent = new Intent(Log_In_Activity.this,
-//                                Driver_Main_Activity.class);
-//                        Log_In_Activity.this.startActivityForResult(intent, Driver_Main_Activity.confirm);
-//                    }
-                }
+                        Query query = db.collection("Driver").whereEqualTo("Username", Username).
+                                whereEqualTo("Password", Password);
+                        query.addSnapshotListener(new EventListener<QuerySnapshot>() {
+                            @Override
+                            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable
+                                    FirebaseFirestoreException e) {
+                                boolean check = true;
+                                for(DocumentSnapshot doc: queryDocumentSnapshots){
+                                    check = false;
+                                    Log.d("Wrong data", doc.getString("Username"));
+                                    user_controller.User_username = doc.getString("Username");
+                                    Intent intent = new Intent(Log_In_Activity.this,
+                                            Driver_Main_Activity.class);
+                                    Log_In_Activity.this.startActivityForResult
+                                            (intent, Driver_Main_Activity.confirm);
+                                }
+                                if (check){
+                                    Toast.makeText(Log_In_Activity.this,
+                                            "User not exist", Toast.LENGTH_LONG).show();
+                                }
+                            }
+
+                        });
+                    }
 
                 // if passenger
                 if (User_type == "P"){
-                    User user = user_controller.readPassenger(Username, Password);
-                    if (user != null){
-                        Intent intent = new Intent(Log_In_Activity.this,
-                                Passenger_Main_Activity.class);
-                        Log_In_Activity.this.startActivityForResult(intent, Passenger_Main_Activity.Confirm);
-                    }
+                    Query query = db.collection("Passenger").whereEqualTo("Username", Username).
+                            whereEqualTo("Password", Password);
+                    query.addSnapshotListener(new EventListener<QuerySnapshot>() {
+                        @Override
+                        public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable
+                                FirebaseFirestoreException e) {
+                            boolean check = true;
+                            for(DocumentSnapshot doc: queryDocumentSnapshots){
+                                check = false;
+                                Log.d("Wrong data", doc.getString("Username"));
+                                user_controller.User_username = doc.getString("Username");
+                                Intent intent = new Intent(Log_In_Activity.this,
+                                        Passenger_Main_Activity.class);
+                                Log_In_Activity.this.startActivityForResult(intent, Passenger_Main_Activity.Confirm);
+                            }
+                            if (check) {
+                                Toast.makeText(Log_In_Activity.this,
+                                        "User not exist", Toast.LENGTH_LONG).show();
+                            }
+                        }
+
+                    });
                 }
 
                 /**
@@ -166,6 +210,4 @@ public class Log_In_Activity extends AppCompatActivity {
             }
         });
     }
-
-
 }

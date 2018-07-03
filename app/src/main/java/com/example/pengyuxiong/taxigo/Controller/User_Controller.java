@@ -3,11 +3,17 @@ package com.example.pengyuxiong.taxigo.Controller;
 import android.support.annotation.NonNull;
 import android.util.ArrayMap;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.pengyuxiong.taxigo.Model.User;
+import com.example.pengyuxiong.taxigo.View.Log_In_Activity;
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -16,18 +22,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.annotation.Nullable;
+
 
 public class User_Controller {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseFirestore mFireStore;
 
-    private int Phone;
-    private String Email = null;
-    private String UserName;
-    private String PassWord;
-    private String Address;
-    private String User_Type;
-    private String User_ID;
+    public String User_username;
+    public String User_password;
+    public String User_email;
+    public int User_phone;
+    public String User_address;
+    public String User_userid;
+    public String User_usertype;
 
 
 
@@ -66,92 +74,5 @@ public class User_Controller {
         }
     }
 
-    /**
-     * read driver data
-     * @param Username
-     * @param Password
-     * @return
-     */
-    public User readDriver(String Username, String Password) {
-
-        Query query = db.collection("Driver").
-                whereEqualTo("Username", Username).whereEqualTo("Password", Password);
-        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                Map<String, Object> user = null;
-
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Log.d("Wrong Data", document.getId() + " => " + document.getData());
-                        user = document.getData();
-                    }
-                    if (user != null) {
-                        Log.d("Wrong data", "refreshing data from controller");
-                        User_Type = String.valueOf(user.get("User_type"));
-                        Email = String.valueOf(user.get("Email"));
-                        Address = String.valueOf(user.get("Address"));
-                        Phone = Integer.parseInt(String.valueOf(user.get("Phone_num")));
-                        UserName = String.valueOf(user.get("Username"));
-                        User_ID = String.valueOf(user.get("User_ID"));
-                        PassWord = String.valueOf(user.get("Password"));
-                    }
-                } else {
-                    Log.d("Wrong data", "Error getting documents: ", task.getException());
-                }
-            }
-        });
-            if (Email != null) {
-                Log.d("Wrong data", "user data from controller");
-                User user1 = new User(User_ID, PassWord, UserName, Address, Phone, Email, User_Type);
-                Email = null;
-                return user1;
-            }
-
-            Log.d("Wrong data", "null data from controller");
-            return null;
-    }
-
-    /**
-     * read Passenger data
-     * @param Username
-     * @param Password
-     * @return
-     */
-    public User readPassenger(final String Username, final String Password) {
-
-
-        Query query = db.collection("Passenger").
-                whereEqualTo("Username", Username).whereEqualTo("Password", Password);
-        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                Map<String, Object> user = null;
-
-                if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
-                        Log.d("Wrong Data", document.getId() + " => " + document.getData());
-                        user = document.getData();
-                    }
-                    if (user != null) {
-                        User_Type = String.valueOf(user.get("User_type"));
-                        Email = String.valueOf(user.get("Email"));
-                        Address = String.valueOf(user.get("Address"));
-                        Phone = Integer.parseInt(String.valueOf(user.get("Phone_num")));
-                        UserName = String.valueOf(user.get("Username"));
-                        User_ID = String.valueOf(user.get("User_ID"));
-                        PassWord = String.valueOf(user.get("Password"));
-                    }
-                } else {
-                    Log.d("Wrong data", "Error getting documents: ", task.getException());
-                }
-            }
-        });
-        if (Email != null) {
-            User user1 = new User(User_ID, PassWord, UserName, Address, Phone, Email, User_Type);
-            return user1;
-        }
-        return null;
-    }
 }
 

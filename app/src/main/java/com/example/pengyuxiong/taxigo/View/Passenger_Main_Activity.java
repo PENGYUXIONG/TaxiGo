@@ -7,7 +7,7 @@ import com.example.pengyuxiong.taxigo.R;
 
 
 public class Passenger_Main_Activity extends AppCompatActivity {
-    public static final int Confirm = 0;
+    public static final int Confirm = 2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
